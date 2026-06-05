@@ -47,6 +47,7 @@ public class BallMovement : MonoBehaviour
         {
             canMove = false;
             RaycastHit[] hits = Physics.RaycastAll(transform.position, moveDirection, MAX_RAY_DISTANCE, wallsAndRoadsLayer.value);
+            System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
 
             Vector3 targetPosition = transform.position;
             int steps = 0;
